@@ -1,6 +1,6 @@
-function Player(name, initialScore, balanceScore) {
+var Player = function(name, balanceScore, initialScore) {
   this.name = name;
-  this.initialScore = 0;
+  this.initialScore = initialScore;
   this.balanceScore = balanceScore;
   //
   // initial score changes with result of dice roll
@@ -11,21 +11,20 @@ function Player(name, initialScore, balanceScore) {
   //
   this.balanceScore = balanceScore + initialScore;
 
-}
+};
 
 Player.prototype.deposit = function() {
   var depositAmount = (Math.floor(Math.random() * (7 - 1)) +1);
+  // debugger;
   if (depositAmount === 1) {
-  var initialScore = 0;
+    this.initialScore = 0;
   } else {
-  this.initialScore += depositAmount;
-
-}
+    this.initialScore += depositAmount;
+  }
+};
 
 Player.prototype.hold = function() {
-  var balanceScore = initialScore;
+  this.balanceScore += this.initialScore;
+  return this.balanceScore;
 
-  return balanceScore;
-
-}
-}
+};
