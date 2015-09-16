@@ -16,8 +16,20 @@ describe('Player', function(){
   });
   it("holds the players score if they choose to stop rolling", function(){
     var name = new Player("brandon", 2, 0);
-    name.hold();
+    var turn = new nextTurn(0);
+    name.hold(turn);
     expect(name.balanceScore).to.be.greaterThan(0);
+
+  });
+
+  it("changes the turn if you're holding", function(){
+    var brandon = new Player("brandon", 2, 0);
+    var tyler = new Player("tyler", 2, 0);
+    var turn = new nextTurn(0);
+    brandon.hold(turn);
+    expect(turn.turn).to.equal(0);
+    var newTurn = turn.changeTurn(brandon, tyler, turn.turn);
+    expect(newTurn).to.equal(1);
 
   });
 });

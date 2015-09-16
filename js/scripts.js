@@ -9,9 +9,21 @@ var Player = function(name, balanceScore, initialScore) {
   // initial score that is put to 0 when the dice === 1
   //
   //
-  this.balanceScore = balanceScore + initialScore;
-
 };
+
+var nextTurn = function(turn) {
+this.turn = turn;
+};
+
+nextTurn.prototype.changeTurn = function(player1, player2, turn) {
+  if (turn === 1) {
+    return turn = 0;
+  } else {
+    return turn = 1;
+  }
+}
+
+
 
 Player.prototype.deposit = function() {
   var depositAmount = (Math.floor(Math.random() * (7 - 1)) +1);
@@ -23,8 +35,10 @@ Player.prototype.deposit = function() {
   }
 };
 
-Player.prototype.hold = function() {
+Player.prototype.hold = function(turn) {
   this.balanceScore += this.initialScore;
+  var player = turn.changeTurn(turn);
   return this.balanceScore;
+
 
 };
