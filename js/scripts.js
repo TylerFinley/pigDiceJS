@@ -64,6 +64,9 @@ $(document).ready(function() {
       player1.hold();
       $("#player_1_score").text(player1.balanceScore);
       $("#player_1_current").text(player1.initialScore);
+      if (player1.balanceScore >= 100) {
+        alert("Congraulations, you win!");
+      }
     });
   });
 
@@ -85,6 +88,9 @@ $(document).ready(function() {
       player2.hold();
       $("#player_2_score").text(player2.balanceScore);
       $("#player_2_current").text(player2.initialScore);
+      if (player2.balanceScore >= 100) {
+        alert("Congraulations, you win!");
+      }
     });
   });
 });
