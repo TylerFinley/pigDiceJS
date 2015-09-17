@@ -44,23 +44,22 @@ Player.prototype.hold = function(turn) {
 };
 
 $(document).ready(function() {
-  var player2;
   //turn?
 
   $("#player1_get_name").submit(function() {
-  event.preventDefault();
+    event.preventDefault();
     var p1_name = $("input#player1_get_name").val();
     var player1 = new Player(p1_name, 0,0);
     $("u#player_1_name").text(player1.name);
     $("form#player1_get_name").hide();
 
-    $("form#player1_roll").submit(function() {
+    $("button#player1_roll").click(function() {
       event.preventDefault();
       player1.deposit();
       $("#player_1_current").text(player1.initialScore);
     });
 
-    $("form#player1_hold").submit(function() {
+    $("button#player1_hold").click(function() {
       event.preventDefault();
       player1.hold();
       $("#player_1_score").text(player1.balanceScore);
@@ -71,10 +70,24 @@ $(document).ready(function() {
   $("#player2_get_name").submit(function() {
     event.preventDefault();
     var p2_name = $("input#player2_get_name").val();
-    player2 = new Player(p2_name, 0,0);
+    var player2 = new Player(p2_name, 0,0);
     $("u#player_2_name").text(player2.name);
     $("form#player2_get_name").hide();
+
+    $("button#player2_roll").click(function() {
+      event.preventDefault();
+      player2.deposit();
+      $("#player_2_current").text(player2.initialScore);
+    });
+
+    $("button#player2_hold").click(function() {
+      event.preventDefault();
+      player2.hold();
+      $("#player_2_score").text(player2.balanceScore);
+      $("#player_2_current").text(player2.initialScore);
+    });
   });
+});
 
 
 
@@ -94,6 +107,3 @@ $(document).ready(function() {
       //even turn
         //hide player1 "actions"
     //loop game-loop
-
-
-});
