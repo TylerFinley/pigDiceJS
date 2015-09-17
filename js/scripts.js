@@ -21,7 +21,7 @@ nextTurn.prototype.changeTurn = function(player1, player2, turn) {
   } else {
     return turn = 1;
   }
-}
+};
 
 
 
@@ -43,16 +43,25 @@ Player.prototype.hold = function(turn) {
 };
 
 $(document).ready(function() {
-  var player1;
+  var player2;
+  //turn?
+
   $("#player1_get_name").submit(function() {
-    event.preventDefault();
+  event.preventDefault();
     var p1_name = $("input#player1_get_name").val();
-    player1 = new Player(p1_name, 0,0);
+    var player1 = new Player(p1_name, 0,0);
     $("u#player_1_name").text(player1.name);
     $("form#player1_get_name").hide();
+
+    $("form#player1_roll").submit(function() {
+      event.preventDefault();
+      player1.deposit();
+      $("#player_1_current").text(player1.initialScore);
+    });
+
+    $("form#player1_hold").submit(function())
   });
 
-  var player2;
   $("#player2_get_name").submit(function() {
     event.preventDefault();
     var p2_name = $("input#player2_get_name").val();
@@ -60,4 +69,25 @@ $(document).ready(function() {
     $("u#player_2_name").text(player2.name);
     $("form#player2_get_name").hide();
   });
+
+
+
+  //play game button
+    // hide play game button
+    //var turn? instead of global
+    //game loop
+      //odd turn
+        //hide player2 "actions"
+        //player1.deposit ()
+        //if player1.initialScore === 0
+          //iterate turn
+        //else
+          //if hold-score button is pressed $().submit()
+            //player1.hold()
+            //iterate turn
+      //even turn
+        //hide player1 "actions"
+    //loop game-loop
+
+
 });
