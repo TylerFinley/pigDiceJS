@@ -37,7 +37,8 @@ Player.prototype.deposit = function() {
 
 Player.prototype.hold = function(turn) {
   this.balanceScore += this.initialScore;
-  var player = turn.changeTurn(turn);
+  this.initialScore = 0;
+  //var player = turn.changeTurn(turn);
   return this.balanceScore;
 
 };
@@ -59,7 +60,12 @@ $(document).ready(function() {
       $("#player_1_current").text(player1.initialScore);
     });
 
-    $("form#player1_hold").submit(function())
+    $("form#player1_hold").submit(function() {
+      event.preventDefault();
+      player1.hold();
+      $("#player_1_score").text(player1.balanceScore);
+      $("#player_1_current").text(player1.initialScore);
+    });
   });
 
   $("#player2_get_name").submit(function() {
