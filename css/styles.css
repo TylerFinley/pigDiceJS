@@ -1,20 +1,47 @@
-#show-film {
+#result {
   display: none;
 }
 
-.film {
-  cursor: pointer;
-  color: #FF66FF;
+body {
+  background-image: url("background.jpg");
+  font-family: 'Amatic SC', cursive;
+  font-size: 34px;
 }
 
-.film:hover {
-  test-decoration: underline;
+#player_1 {
+  float: left;
+  width: 50%;
 }
 
-.main-header {
+#player_2 {
+  float: right;
+  width: 50%;
+}
+
+
+#player_1_actions {
+  padding: 38px;
+  width: 35%;
+  float: right;
+}
+
+#player_1_stats {
+  width: 65%;
+  float: left;
+}
+
+#player1_get_name {
+  width: 85%;
   text-align: center;
 }
 
-.film-list {
-  display: none;
+#player_2_actions {
+  padding: 38px;
+  width: 35%;
+  float: right;
+}
+
+#player_2_stats {
+  width: 65%;
+  float: left;
 }
