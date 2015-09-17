@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/png" href="css/piggy.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <title>Pig Dice</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="player_1">
+        <br>
+
+        <form id="player1_get_name">
+          <input type="text" id="player1_get_name" placeholder="Player 1 Name" style="width:50%;">
+          <button>Save Name</button>
+        </form>
+        <br>
+        <div id="player_1_actions">
+          <br>
+          <form id="player1_roll">
+            <button type="submit" class="btn btn-primary btn-lg">Roll</button>
+          </form>
+
+          <form id="player_1_hold">
+            <button type="submit" class="btn btn-primary btn-lg">Hold Score</button>
+          </form>
+        </div>
+        <div id="player_1_stats">
+          <p><u id="player_1_name">Player 1</u> <br><br>Score: <span id="player_1_score"> </span><br>  Current Score: <span id="player_1_current"></span></p>
+        </div>
+      </div>
+      <div id="player_2">
+        <br>
+
+        <form id="player2_get_name">
+          <input type="text" id="player2_get_name" placeholder="Player 2 Name" style="width:50%;">
+          <button>Save Name</button>
+        </form>
+
+        <br>
+
+        <div id="player_2_actions">
+          <br
+        <form id="player2_roll">
+          <button type="submit" class="btn btn-primary btn-lg">Roll</button>
+        </form>
+
+        <form id="player2_hold">
+          <button type="submit" class="btn btn-primary btn-lg">Hold Score</button>
+        </form>
+      </div>
+
+        <div id="player_2_stats">
+          <p><u id="player_2_name">Player 2</u> <br><br>Score: <span id="player_2_score"> </span><br> Current Score: <span id="player_2_current"></span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -12,7 +12,7 @@ var Player = function(name, balanceScore, initialScore) {
 };
 
 var nextTurn = function(turn) {
-this.turn = turn;
+  this.turn = turn;
 };
 
 nextTurn.prototype.changeTurn = function(player1, player2, turn) {
@@ -40,5 +40,24 @@ Player.prototype.hold = function(turn) {
   var player = turn.changeTurn(turn);
   return this.balanceScore;
 
-
 };
+
+$(document).ready(function() {
+  var player1;
+  $("#player1_get_name").submit(function() {
+    event.preventDefault();
+    var p1_name = $("input#player1_get_name").val();
+    player1 = new Player(p1_name, 0,0);
+    $("u#player_1_name").text(player1.name);
+    $("form#player1_get_name").hide();
+  });
+
+  var player2;
+  $("#player2_get_name").submit(function() {
+    event.preventDefault();
+    var p2_name = $("input#player2_get_name").val();
+    player2 = new Player(p2_name, 0,0);
+    $("u#player_2_name").text(player2.name);
+    $("form#player2_get_name").hide();
+  });
+});
